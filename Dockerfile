@@ -32,8 +32,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
 	python3-pip \
 	python-dev \
 	python3-dev \
-	python-opencv \
-	pycharm-community
+	python-opencv
 
 RUN pip --no-cache-dir install --upgrade pip \
 	setuptools

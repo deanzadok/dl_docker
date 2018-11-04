@@ -32,8 +32,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
 	python3-pip \
 	python-dev \
 	python3-dev \
-	python-opencv \
-	pycharm-community
+	python-opencv
 
 RUN pip --no-cache-dir install --upgrade pip \
 	setuptools
@@ -118,8 +117,12 @@ RUN pip3 --no-cache-dir install \
 RUN pip3 --no-cache-dir install \
 	numpy \
 	torchvision_nightly
-RUN pip3 --no-cache-dir install \
-	torch_nightly -f https://download.pytorch.org/whl/nightly/cu90/torch_nightly.html
+WORKDIR /
+RUN git clone --recursive https://github.com/pytorch/pytorch
+WORKDIR pytorch
+RUN python3 setup.py install
+WORKDIR /
+RUN rm -rf pytorch
 
 # install torchvision
 WORKDIR /
