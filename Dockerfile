@@ -71,7 +71,7 @@ RUN pip3 --no-cache-dir install --upgrade \
 	https://github.com/Lasagne/Lasagne/archive/master.zip
 
 # define sudo user:
-#-------------------
+#---------------------
 #ARG HOME=$HOME
 #ARG UID=$UID
 COPY entrypoint.sh /usr/local/bin/entrypoint.sh
